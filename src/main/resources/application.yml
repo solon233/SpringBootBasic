@@ -1,0 +1,30 @@
+####################
+# MyBatisの設定
+####################
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: true
+####################
+# データソース設定
+####################
+spring:
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:testdb
+        username: sa
+        password:
+    # 起動時にスキーマとテーブルを設定
+    initialization-mode: always
+    sql:
+        init:
+            schema-locations: classpath:h2/schema.sql
+            data-locations: classpath:h2/data.sql
+####################
+# h2コンソール
+####################
+h2:
+    console:
+        enabled: true
+        # 以下のURLでh2のコンソールを表示
+        # http://localhost:${port}/h2-console
+        path: /h2-console
